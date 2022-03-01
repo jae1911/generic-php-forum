@@ -45,7 +45,6 @@ Latest posts:
 
         $stmt = $db->prepare($sql);
         $stmt->execute();
-        // TODO: display posts
         foreach ($stmt as $row) {
             $title = $row['title'];
             $content = $row['content'];
