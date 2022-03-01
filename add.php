@@ -40,7 +40,7 @@
             try {
                 $stmt->execute($data);
 
-                header('Location: viewpost.php?p=' . $uuid);
+                header('Location: view.php?p=' . $uuid);
             } catch(PDOException $e) {
                 print($e->getMessage());
             }

@@ -16,6 +16,7 @@
             if(isset($_SESSION['sess_userid']) && $_SESSION['sess_userid'] != "") {
     ?>
                 <li><a href="add.php">Add post</a></li>
+                <li><a href="catalog.php">Post catalog</a></li>
                 <li><a href="logout.php">Logout</a></li>
     <?php
             } else {
