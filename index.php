@@ -40,7 +40,7 @@ Latest posts:
     $rows = $stmt->fetchColumn();
 
     if($rows > 0) {
-        $sql = "SELECT * FROM posts ORDER BY post_date DESC LIMIT 5";
+        $sql = "SELECT p.title,p.content,p.uuid,p.post_date,u.username FROM posts p INNER JOIN users u ON u.id = p.poster ORDER BY p.post_date DESC LIMIT 5";
 
         $stmt = $db->prepare($sql);
         $stmt->execute();
@@ -50,10 +50,11 @@ Latest posts:
             $content = $row['content'];
             $uuid = $row['uuid'];
             $date = $row['post_date'];
+            $username = $row['username'];
             print('<hr/>');
             print("<h5>$title</h5>");
             print("<p>$content</p>");
-            print("On $date, <a href='view.php?p=$uuid'>Link to full post</a>.");
+            print("On $date by $username, <a href='view.php?p=$uuid'>Link to full post</a>.");
         }
     } else {
         print('<h3>Nothing to see here...</h3>');
