@@ -8,6 +8,7 @@
 
 <h1>Welcome</h1>
 <h2>This is a lightweight demonstration forum</h2>
+<?php if(isset($_SESSION['sess_userid'])) echo("Welcome " . $_SESSION['sess_username']); ?>
 
 <p>Links are there:</p>
 <ul>
@@ -39,7 +40,21 @@ Latest posts:
     $rows = $stmt->fetchColumn();
 
     if($rows > 0) {
+        $sql = "SELECT * FROM posts ORDER BY post_date DESC LIMIT 5";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
         // TODO: display posts
+        foreach ($stmt as $row) {
+            $title = $row['title'];
+            $content = $row['content'];
+            $uuid = $row['uuid'];
+            $date = $row['post_date'];
+            print('<hr/>');
+            print("<h5>$title</h5>");
+            print("<p>$content</p>");
+            print("On $date, <a href='view.php?p=$uuid'>Link to full post</a>.");
+        }
     } else {
         print('<h3>Nothing to see here...</h3>');
     }
