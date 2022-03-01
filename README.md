@@ -17,3 +17,5 @@ Login page
 ![](https://bm.jae.fi/ShareX/2022/03/vivaldi_rPJfnPaPfa.png)  
 New post page (logged in)  
 ![](https://bm.jae.fi/ShareX/2022/03/vivaldi_bUDqqNb3Pu.png)  
+See post (logged in)
+![](https://bm.jae.fi/ShareX/2022/03/vivaldi_1q5GPbpNTx.png)
