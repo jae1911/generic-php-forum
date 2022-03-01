@@ -51,15 +51,18 @@ Latest posts:
             $uuid = $row['uuid'];
             $date = $row['post_date'];
 
-            if(isset($_SESSION['sess_userid']))
+            if($logged_in) {
                 $username = $row['username'];
-            else
+                $link = ", <a href='view.php?p=$uuid'>Link to full post</a>";
+            } else {
                 $username = '[please login to view usernames]';
+                $link = '';
+            }
 
             print('<hr/>');
             print("<h5>$title</h5>");
             print("<p>$content</p>");
-            print("On $date by $username, <a href='view.php?p=$uuid'>Link to full post</a>.");
+            print("On $date by $username $link.");
         }
     } else {
         print('<h3>Nothing to see here...</h3>');

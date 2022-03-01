@@ -2,10 +2,11 @@
 
     $_TITLE = 'New post';
 
-    if(isset($_SESSION['sess_userid']))
-        header('Location: index.php');
-
     require('partials/header.php');
+
+    if(!$logged_in) {
+        header('Location: index.php');
+    }
 
     if(!empty($_POST['submit'])) {
         // Begin Register sequence
@@ -54,6 +55,8 @@
 ?>
 
 <h1>New post</h1>
+
+<p><a href="index.php">Return to index</a></p>
 
 <form action="add.php" method="post">
     <label>Title (255 chars)</label>

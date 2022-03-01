@@ -2,10 +2,11 @@
 
     $_TITLE = 'Login';
 
-    if(isset($_SESSION['sess_userid']) && $_SESSION['sess_userid'] != "")
-        header('location: index.php');
-
     require('partials/header.php');
+
+    if($logged_in) {
+        header('Location: index.php');
+    }
 
     if(!empty($_POST['submit'])) {
         // Begin Login sequence
