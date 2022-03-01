@@ -50,7 +50,12 @@ Latest posts:
             $content = $row['content'];
             $uuid = $row['uuid'];
             $date = $row['post_date'];
-            $username = $row['username'];
+
+            if(isset($_SESSION['sess_userid']))
+                $username = $row['username'];
+            else
+                $username = '[please login to view usernames]';
+
             print('<hr/>');
             print("<h5>$title</h5>");
             print("<p>$content</p>");
