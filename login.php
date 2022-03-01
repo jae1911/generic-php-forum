@@ -2,6 +2,9 @@
 
     $_TITLE = 'Login';
 
+    if(isset($_SESSION['sess_userid']) && $_SESSION['sess_userid'] != "")
+        header('location: index.php');
+
     require('partials/header.php');
 
     if(!empty($_POST['submit'])) {
@@ -33,7 +36,7 @@
             if(password_verify($password, $getRow['password'])) {
                 // Password OK, login sequence
                 session_regenerate_id();
-                
+
                 $_SESSION['sess_username'] = $username;
                 $_SESSION['sess_userid'] = $getRow['id'];
 

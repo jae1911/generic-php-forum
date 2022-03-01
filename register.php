@@ -2,6 +2,9 @@
 
     $_TITLE = 'Register';
 
+    if(isset($_SESSION['sess_userid']) && $_SESSION['sess_userid'] != "")
+        header('location: index.php');
+
     require('partials/header.php');
 
     if(!empty($_POST['submit'])) {
