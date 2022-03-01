@@ -32,11 +32,12 @@
             $getRow = $handle->fetch(PDO::FETCH_ASSOC);
             if(password_verify($password, $getRow['password'])) {
                 // Password OK, login sequence
-                $_SESSION['username'] = $username;
-                $_SESSION['userid'] = $getRow['id'];
+                session_regenerate_id();
+                
+                $_SESSION['sess_username'] = $username;
+                $_SESSION['sess_userid'] = $getRow['id'];
 
-                print($_SESSION['username']);
-                header('location:index.php');
+                header('location: index.php');
             }
 
         } else {

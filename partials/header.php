@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
     $start_page_load = microtime(true);
-
+    session_start();
     require('util/db.php');
 ?>
 <head>

@@ -12,9 +12,9 @@
 <p>Links are there:</p>
 <ul>
     <?php
-    print($_SESSION['username']);
-            if(session_status() == PHP_SESSION_ACTIVE) {
+            if(isset($_SESSION['sess_userid']) && $_SESSION['sess_userid'] != "") {
     ?>
+                <li><a href="add.php">Add post</a></li>
                 <li><a href="logout.php">Logout</a></li>
     <?php
             } else {
@@ -25,6 +25,26 @@
             }
     ?>
 </ul>
+
+<hr />
+
+Latest posts:
+<?php
+
+    $sql = "SELECT * FROM posts ORDER BY post_date DESC LIMIT 5";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+
+    $rows = $stmt->fetchColumn();
+
+    if($rows > 0) {
+        // TODO: display posts
+    } else {
+        print('<h3>Nothing to see here...</h3>');
+    }
+
+?>
 
 <?php
 
