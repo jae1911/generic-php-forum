@@ -1,6 +1,6 @@
 <?php
 
-    $_TITLE = 'Register';
+    $_TITLE = 'New post';
 
     if(isset($_SESSION['sess_userid']))
         header('Location: index.php');
@@ -53,7 +53,7 @@
 
 ?>
 
-<h1>Register</h1>
+<h1>New post</h1>
 
 <form action="add.php" method="post">
     <label>Title (255 chars)</label>
