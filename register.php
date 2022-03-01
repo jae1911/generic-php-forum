@@ -28,7 +28,7 @@
         $handle->execute($params);
 
         if($handle->rowCount() > 0)
-            $err[] = 'Please choose a different username<br/>';
+            $err[] = 'Please choose a different username or <a href="login.php">login</a><br/>';
 
         if(empty($err)) {
             // Proceed to Register
@@ -62,6 +62,8 @@
 ?>
 
 <h1>Register</h1>
+
+<p><a href="index.php">Return to index</a></p>
 
 <form action="register.php" method="post">
     <label>Username</label>

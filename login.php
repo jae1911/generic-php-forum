@@ -54,6 +54,8 @@
 
 <h1>Login</h1>
 
+<p><a href="index.php">Return to index</a></p>
+
 <form action="login.php" method="post">
     <label>Username</label>
     <input type="text" name="username" id="username"/>
