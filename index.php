@@ -63,7 +63,7 @@ Latest posts:
             print('<hr/>');
             print("<h5>$title</h5>");
             print("<p>$content</p>");
-            print("On $date by $username $link.");
+            print("On $date by <a href='u.php?u=$username'>$username</a> $link.");
         }
         print('<hr/><a href="catalog.php">View more.</a>');
     } else {

@@ -12,8 +12,8 @@
         // Begin Login sequence
 
         // Various checks
-        $username = trim($_POST['username']);
-        $password = trim($_POST['password']);
+        $username = htmlspecialchars(trim($_POST['username']));
+        $password = htmlspecialchars(trim($_POST['password']));
 
         $err = [];
 

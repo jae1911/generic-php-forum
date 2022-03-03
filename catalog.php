@@ -68,7 +68,7 @@
             print("<hr/>");
             print("<h2>$title</h2>");
             print("<p>$content</p>");
-            print("On $date by $username.");
+            print("On $date by <a href='u.php?u=$username'>$username</a>.");
         }
 
         print("<hr/><br/><br/>");

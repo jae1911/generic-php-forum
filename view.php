@@ -12,7 +12,7 @@
         header('Location: index.php');
     }
 
-    $query_id = $_GET['p'];
+    $query_id = htmlspecialchars($_GET['p']);
 
     // Preselect
     $sql = "SELECT p.*,u.username FROM posts p INNER JOIN users u ON u.id = p.poster WHERE p.uuid = '$query_id'";
@@ -41,7 +41,7 @@
         $username = $row['username'];
         print("<h2>$title</h2>");
         print("<p>$content</p>");
-        print("On $date by $username.");
+        print("On $date by <a href='u.php?u=$username'>$username</a>.");
     }
 
     require('partials/footer.php');
