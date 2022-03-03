@@ -46,26 +46,31 @@ Latest posts:
 
         $stmt = $db->prepare($sql);
         $stmt->execute();
+        print("<ul>");
         foreach ($stmt as $row) {
             $title = $row['title'];
             $content = $row['content'];
             $uuid = $row['uuid'];
             $date = $row['post_date'];
+            $username = $row['username'];
 
             if($logged_in) {
-                $username = $row['username'];
-                $link = ", <a href='view.php?p=$uuid'>Link to full post</a>";
+                $username = "by <a href='u.php?u=$username'>$username</a>";
             } else {
                 $username = '[please login to view usernames]';
-                $link = '';
             }
 
-            print('<hr/>');
-            print("<h5>$title</h5>");
-            print("<p>$content</p>");
-            print("On $date by <a href='u.php?u=$username'>$username</a> $link.");
+            print("<li><a href=\"view.php?p=$uuid\">$title</a> on $date</li> by $username");
+
+            //print('<hr/>');
+            //print("<h5>$title</h5>");
+            //print("<p>$content</p>");
+            //print("On $date by <a href='u.php?u=$username'>$username</a> $link.");
         }
-        print('<hr/><a href="catalog.php">View more.</a>');
+        print("</ul>");
+        if($logged_in) {
+            print('<hr/><a href="catalog.php">View more.</a>');
+        }
     } else {
         print('<h3>Nothing to see here...</h3>');
     }
