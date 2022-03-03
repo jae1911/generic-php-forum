@@ -39,9 +39,10 @@
         $uuid = $row['uuid'];
         $date = $row['post_date'];
         $username = $row['username'];
+        $uuid = $row['uuid'];
         print("<h2>$title</h2>");
         print("<p>$content</p>");
-        print("On $date by <a href='u.php?u=$username'>$username</a>.");
+        print("On $date by <a href='u.php?u=$username'>$username</a> - $uuid");
     }
 
     require('partials/footer.php');

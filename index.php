@@ -60,12 +60,7 @@ Latest posts:
                 $username = '[please login to view usernames]';
             }
 
-            print("<li><a href=\"view.php?p=$uuid\">$title</a> on $date</li> by $username");
-
-            //print('<hr/>');
-            //print("<h5>$title</h5>");
-            //print("<p>$content</p>");
-            //print("On $date by <a href='u.php?u=$username'>$username</a> $link.");
+            print("<li><a href=\"view.php?p=$uuid\">$title</a> on $date</li> $username");
         }
         print("</ul>");
         if($logged_in) {

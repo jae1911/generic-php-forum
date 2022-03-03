@@ -38,6 +38,9 @@
                 // Password OK, login sequence
                 session_regenerate_id();
 
+                if(isset($getRow['admin']) && $getRow['admin'] == 'yes')
+                    $_SESSION['admin'] = 'yes';
+
                 $_SESSION['sess_username'] = $username;
                 $_SESSION['sess_userid'] = $getRow['id'];
 
