@@ -17,6 +17,7 @@
     ?>
                 <li><a href="add.php">Add post</a></li>
                 <li><a href="catalog.php">Post catalog</a></li>
+                <li><a href="dashboard.php">User dashboard</a></li>
                 <li><a href="logout.php">Logout</a></li>
     <?php
             } else {
@@ -64,6 +65,7 @@ Latest posts:
             print("<p>$content</p>");
             print("On $date by $username $link.");
         }
+        print('<hr/><a href="catalog.php">View more.</a>');
     } else {
         print('<h3>Nothing to see here...</h3>');
     }

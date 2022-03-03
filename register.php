@@ -35,14 +35,16 @@
             // Proceed to Register
             $hashed_pass = password_hash($password, PASSWORD_BCRYPT);
 
+            $uuid = uniqid();
             $date = date('Y-m-d H:i:s');
 
             $data = [
                 'username' => $username,
-                'password' => $hashed_pass
+                'password' => $hashed_pass,
+                'uuid' => $uuid
             ];
 
-            $sql = "INSERT INTO users (username, password, signup_date, last_login) VALUES (:username, :password, now(), now())";
+            $sql = "INSERT INTO users (username, password, signup_date, last_login, uuid) VALUES (:username, :password, now(), now(), :uuid)";
             $stmt = $db->prepare($sql);
 
             try {
